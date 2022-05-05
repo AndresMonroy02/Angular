@@ -1,0 +1,47 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <span class="titulo">Crear Alumno</span>
+                <form class="mt-4" [formGroup]="alumnoForm" (ngSubmit)="agregarAlumno()">
+                    <div class="mb-3" >
+                        <label for="exampleInputEmail1" class="form-label">Numero de Documento</label>
+                        <input type="number" formControlName="documento" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div class="text-danger"
+                            *ngIf="alumnoForm.get('documento')?.hasError('required') && alumnoForm.get('documento')?.touched">
+                            <span>Este Campo <strong>es obligatorio</strong></span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                        <input type="text" formControlName="nombre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div class="text-danger"
+                        *ngIf="alumnoForm.get('nombre')?.hasError('required') && alumnoForm.get('nombre')?.touched">
+                        <span>Este Campo <strong>es obligatorio</strong></span>
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Apellido</label>
+                        <input type="text" formControlName="apellido" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div class="text-danger"
+                        *ngIf="alumnoForm.get('apellido')?.hasError('required') && alumnoForm.get('apellido')?.touched">
+                        <span>Este Campo <strong>es obligatorio</strong></span>
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Edad</label>
+                        <input type="number" formControlName="edad" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div class="text-danger"
+                        *ngIf="alumnoForm.get('edad')?.hasError('required') && alumnoForm.get('edad')?.touched">
+                        <span>Este Campo <strong>es obligatorio</strong></span>
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <button routerLink="/" class="btn btn-secondary btn-lg float-start">Cancelar</button>
+                        <button type="submit" [disabled]="alumnoForm.invalid" class="btn btn-success btn-lg float-end">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
